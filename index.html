@@ -500,7 +500,7 @@
 <script>
 (function(){
   "use strict";
-  var SHARE_URL = "https://mitrasurvey.netlify.app/"; // <-- replace with the real hosted URL once you host it
+  var SHARE_URL = "https://mitra.app"; // <-- replace with the real hosted URL once you host it
 
   var prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var root = document.documentElement;
@@ -734,8 +734,6 @@
     document.getElementById("result-type").textContent = a[0];
     document.getElementById("result-reflection").textContent = a[1];
     data.result.warmth = 1; root.style.setProperty("--warmth","1"); root.style.setProperty("--progress","1");
-    console.log("%cMITRA · response","color:#FFCB8E;font-weight:700;font-size:13px");
-    console.log(JSON.stringify(data,null,2));
     // anonymous record only — never the contact. result here excludes notifyContact by construction.
     saveTo("responses", {
       meta: data.meta,
@@ -781,7 +779,6 @@
       }
       data.result.waitlist = true;
       data.result.notifyContact = v;
-      console.log("%cMITRA · waitlist", "color:#FFCB8E;font-weight:700;font-size:13px", v);
       saveTo("waitlist", { contact:v, archetype:data.result.archetype, archetypeKey:data.result.archetypeKey, at:new Date().toISOString() });
       btn.disabled = true; btn.textContent = "see you soon 🌙";
       input.disabled = true;
